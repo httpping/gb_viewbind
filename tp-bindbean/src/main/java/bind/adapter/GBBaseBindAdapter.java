@@ -89,7 +89,7 @@ public class GBBaseBindAdapter<T extends MultiItemEntity,K extends BaseViewHolde
 
     /**
      * 是否打开自动binder view
-     * @return
+     * @return 值
      */
     public boolean isOpenAutoBindView(){return false;}
 }

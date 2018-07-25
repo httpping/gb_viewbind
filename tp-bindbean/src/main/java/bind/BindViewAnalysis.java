@@ -16,9 +16,13 @@ public class BindViewAnalysis {
 
     static   Class[] Annotations = {BindItem.class};
 
+
     /**
      * 解析 class
-     * @param entity
+     * @param entity 解析 class
+     * @param <T> x
+     * @return x
+     * @throws Exception x
      */
     public static <T> HashMap<Integer, BindModel>  parse(T entity) throws Exception{
         HashMap<Integer, BindModel> result = new HashMap<>();

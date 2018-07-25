@@ -23,6 +23,10 @@ android {
         }
     }
 
+    lintOptions {
+        abortOnError false
+    }
+
 }
 
 dependencies {
@@ -36,10 +40,10 @@ dependencies {
 //gradlew clean build bintrayUpload -PbintrayUser=httpping -PbintrayKey=363bcd47dd3557230d01c1fb525c0a02e3ae8b92 -PdryRun=false
 
 publish {
-    repoName = 'tp_gson'
+    repoName = 'GbBindHelper'
     userOrg = 'gbtp'//bintray.com用户名
-    groupId = "gb.tp.viewbind"//jcenter上的路径
-    artifactId = 'gb_viewbind'//项目名称
+    groupId = "gb.tp.bindhelper"//jcenter上的路径
+    artifactId = 'GbBindHelper'//项目名称
     publishVersion = '1.0.0'//版本号
     desc = 'gb_bindview'
     website = 'https://github.com/httpping/tp_bindview'

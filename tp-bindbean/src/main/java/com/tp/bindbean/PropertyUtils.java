@@ -45,9 +45,9 @@ public class PropertyUtils {
 
     /**
      * 根据 annotations 查找 cls
-     * @param mAnnotation
-     * @param cls
-     * @return
+     * @param mAnnotation x
+     * @param cls x
+     * @return 返回值
      */
     public static Method getMethodForAnnotations(Class mAnnotation,Class cls ){
         for (Method method : cls.getDeclaredMethods()){
@@ -106,11 +106,12 @@ public class PropertyUtils {
 
     }
 
+
     /**
-     * 获取属性值
-     * @param obj
-     * @param propertyName
-     * @return
+     *  获取属性值
+     * @param obj x
+     * @param propertyName x
+     * @return 返回值
      */
     public static Object invokeGetter(Object obj, String propertyName) {
         try {

@@ -22,8 +22,8 @@ import java.util.List;
 /**
  * analysis
  *
- * @author
- * @create 2018-4-20 9:59
+ * @author 谭平
+ *  2018-4-20 9:59 x
  **/
 public class CodeGenerator {
 
@@ -32,7 +32,7 @@ public class CodeGenerator {
 
     /**
      * 解析
-     * @param entity
+     * @param entity 值
      */
      static <T> List<ViewModel>  parse(T entity) throws Exception{
         List<ViewModel> viewModels = new ArrayList<>();
@@ -70,8 +70,8 @@ public class CodeGenerator {
 
     /**
      * 是否是 view bind converter 的标注
-     * @param annotations
-     * @return
+     * @param annotations 值
+     * @return 值
      */
     private  static boolean isExist(Annotation[] annotations) {
         for (Annotation annotation : annotations) {
@@ -85,11 +85,11 @@ public class CodeGenerator {
 
     /**
      *  赋值
-     * @param holder
-     * @param data
-     * @param <T>
-     * @throws IllegalAccessException
-     * @throws InvocationTargetException
+     * @param holder 值
+     * @param data 值
+     * @param <T> 值
+     * @throws IllegalAccessException 值
+     * @throws InvocationTargetException  值
      */
     static  <T> void bindView(BaseViewHolder holder, T data,List<ViewModel> binds) throws IllegalAccessException, InvocationTargetException {
         for (ViewModel viewModel : binds){
