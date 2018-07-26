@@ -25,7 +25,7 @@ import java.util.List;
  * @author 谭平
  *  2018-4-20 9:59 x
  **/
-public class CodeGenerator {
+class CodeGenerator {
 
 
 //    static HashMap<Class, List<ViewModel>> cache;
@@ -94,7 +94,12 @@ public class CodeGenerator {
     static  <T> void bindView(BaseViewHolder holder, T data,List<ViewModel> binds) throws IllegalAccessException, InvocationTargetException {
         for (ViewModel viewModel : binds){
             try {
-                viewModel.converter.invoke(null,holder.getView(viewModel.idRes),viewModel.field.get(data));
+                if (viewModel.converter.getParameterTypes().length ==3){
+                    viewModel.converter.invoke(null,holder.getView(viewModel.idRes),viewModel.field.get(data),data);
+                }else {
+                    viewModel.converter.invoke(null,holder.getView(viewModel.idRes),viewModel.field.get(data));
+
+                }
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (Exception e){
@@ -103,6 +108,33 @@ public class CodeGenerator {
         }
 
     }
+
+    /**
+     *  赋值
+     * @param view 值
+     * @param data 值
+     * @param <T> 值
+     * @throws IllegalAccessException 值
+     * @throws InvocationTargetException  值
+     */
+    static  <T> void bindView(View view, T data,List<ViewModel> binds) throws IllegalAccessException, InvocationTargetException {
+        for (ViewModel viewModel : binds){
+            try {
+                if (viewModel.converter.getParameterTypes().length ==3){
+                    viewModel.converter.invoke(null,view.findViewById(viewModel.idRes),viewModel.field.get(data),data);
+                }else {
+                    viewModel.converter.invoke(null,view.findViewById(viewModel.idRes),viewModel.field.get(data));
+                }
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+
+    }
+
+
 
 
 }

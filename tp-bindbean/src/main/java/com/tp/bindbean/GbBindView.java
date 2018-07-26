@@ -24,6 +24,8 @@ package com.tp.bindbean;
 
 */
 
+import android.view.View;
+
 import com.chad.library.adapter.base.BaseViewHolder;
 
 import java.util.HashMap;
@@ -39,6 +41,20 @@ public class GbBindView {
 
     static HashMap<Class, List<ViewModel>> cache;
     public static <T> void bindView(BaseViewHolder holder , T entity) throws Exception {
+        List<ViewModel> result = queryCode(entity);
+        //bind view
+        CodeGenerator.bindView(holder,entity,result);
+    }
+
+    public static <T> void bindView(View holder , T entity) throws Exception {
+        List<ViewModel> result = queryCode(entity);
+        //bind view
+        CodeGenerator.bindView(holder,entity,result);
+    }
+
+
+
+    private static  <T>  List<ViewModel> queryCode(T entity) throws Exception {
         if (cache == null){
             cache = new HashMap<>();
         }
@@ -48,7 +64,7 @@ public class GbBindView {
             result = CodeGenerator.parse(entity);
             cache.put(entity.getClass(),result);
         }
-        //bind view
-        CodeGenerator.bindView(holder,entity,result);
+
+        return result;
     }
 }
