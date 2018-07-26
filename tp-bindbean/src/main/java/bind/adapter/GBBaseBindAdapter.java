@@ -81,12 +81,16 @@ public class GBBaseBindAdapter<T extends MultiItemEntity,K extends BaseViewHolde
                         GbBindView.bindView(helper, item);
                     }
                 }
-                methodModel.method.invoke(this,helper,item);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (InvocationTargetException e) {
                 e.printStackTrace();
             } catch (Exception e){
+                e.printStackTrace();
+            }
+            try {
+                methodModel.method.invoke(this,helper,item);
+            }   catch (Exception e) {
                 e.printStackTrace();
             }
         }

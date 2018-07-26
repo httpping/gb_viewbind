@@ -44,12 +44,18 @@ public class GbBindView {
     static HashMap<Class, List<ViewModel>> cache;
     static ConcurrentLinkedQueue fifoAndWeightQuery;
     public static <T> void bindView(BaseViewHolder holder , T entity) throws Exception {
+        if (holder==null || entity ==null){
+            throw new NullPointerException("holder and entity is null,ignore bind");
+        }
         List<ViewModel> result = queryCode(entity);
         //bind view
         CodeGenerator.bindView(holder,entity,result);
     }
 
     public static <T> void bindView(View holder , T entity) throws Exception {
+        if (holder==null || entity ==null){
+            throw new NullPointerException("holder and entity is null,ignore bind");
+        }
         List<ViewModel> result = queryCode(entity);
         //bind view
         CodeGenerator.bindView(holder,entity,result);
@@ -81,7 +87,6 @@ public class GbBindView {
         while (fifoAndWeightQuery.size() > MAX_QUERY){
             fifoAndWeightQuery.poll();
         }
-
 
 
         return result;

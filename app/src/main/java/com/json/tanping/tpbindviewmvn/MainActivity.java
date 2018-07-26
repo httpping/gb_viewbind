@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         recyclerView = findViewById(R.id.recyclerView);
 
-        //限制桂东
+        //限制
         LinearLayoutManager manager = new LinearLayoutManager(this) ;
         recyclerView.setLayoutManager(manager);
         testData();
@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
             DemoBean bean = new DemoBean();
 //            bean.type = i%3;
             bean.value = new OKBean();
+
 //            if (i%2==0) bean.type =TYPE_ITEM;
             beans.add(bean);
         }

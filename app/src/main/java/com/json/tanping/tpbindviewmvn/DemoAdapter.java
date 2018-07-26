@@ -42,7 +42,7 @@ public class DemoAdapter extends GBBaseBindAdapter<DemoBean,BaseViewHolder> {
     }
 
     @BindItem(layout = R.layout.item_one)
-    public void one(BaseViewHolder helper,DemoBean bean) throws Exception {
+    public void afadsfsdf(BaseViewHolder helper,DemoBean bean) throws Exception {
 
     }
 

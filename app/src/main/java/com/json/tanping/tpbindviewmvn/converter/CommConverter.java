@@ -29,6 +29,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.json.tanping.tpbindviewmvn.DemoBean;
+import com.json.tanping.tpbindviewmvn.OKBean;
 import com.json.tanping.tpbindviewmvn.R;
 import com.json.tanping.tpbindviewmvn.converter.annotations.ImageViewBind;
 import com.json.tanping.tpbindviewmvn.converter.annotations.PriceViewBind;
@@ -39,10 +40,11 @@ import com.json.tanping.tpbindviewmvn.converter.annotations.PriceViewBind;
  * 创建人：Created by tanping
  * 创建时间:2018/7/25 17:35
  */
+
 public class CommConverter {
 
     @ImageViewBind
-    public static void gbBind(ImageView view, String data,DemoBean demoBean) {
+    public static void ssss(ImageView view, String data,OKBean demoBean) {
         if (view == null){
             return;
         }

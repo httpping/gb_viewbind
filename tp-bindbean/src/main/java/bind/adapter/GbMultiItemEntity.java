@@ -36,8 +36,7 @@ public interface GbMultiItemEntity<T> extends MultiItemEntity{
 
     /**
      * 获取item 对应的值，用于多复杂类型 adapter 使用
-     * @param <T>
-     * @return
+     * @return  x
      */
      T getItemValue();
 }
