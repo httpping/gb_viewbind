@@ -24,6 +24,8 @@ package com.json.tanping.tpbindviewmvn;
 
 */
 
+import com.json.tanping.tpbindviewmvn.converter.annotations.ImageViewBind;
+import com.json.tanping.tpbindviewmvn.converter.annotations.PriceViewBind;
 import com.tp.bindbean.annotations.TextViewBind;
 
 /**
@@ -34,6 +36,12 @@ import com.tp.bindbean.annotations.TextViewBind;
  */
 public class OKBean {
 
-//    @TextViewBind(id = R.id)
-    public String hello;
+    @TextViewBind(id = R.id.textView)
+    public String text ="hello wlord 为2神神道ss道";
+
+    @ImageViewBind(id=R.id.imageView)
+    public String url ="url";
+
+    @PriceViewBind(id=R.id.textView1)
+    public float price = 2.3f;
 }

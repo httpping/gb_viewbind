@@ -27,9 +27,12 @@ package com.json.tanping.tpbindviewmvn.converter.annotations;
 import android.support.annotation.IdRes;
 
 import com.json.tanping.tpbindviewmvn.converter.CommConverter;
+import com.tp.bindbean.annotations.TextViewBind;
+import com.tp.bindbean.annotations.ViewBind;
 import com.tp.bindbean.annotations.ViewBindConverter;
 
 import java.lang.annotation.ElementType;
+import java.lang.annotation.Inherited;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;

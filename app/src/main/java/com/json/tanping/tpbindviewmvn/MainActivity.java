@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
     public void testData(){
         for (int i=0;i<30;i++){
             DemoBean bean = new DemoBean();
-            bean.type = i%3;
+//            bean.type = i%3;
+            bean.value = new OKBean();
 //            if (i%2==0) bean.type =TYPE_ITEM;
             beans.add(bean);
         }

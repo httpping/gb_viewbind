@@ -1,4 +1,4 @@
-package com.json.tanping.tpbindviewmvn;
+package bind.adapter;
 /*
 
                    _ooOoo_
@@ -24,25 +24,20 @@ package com.json.tanping.tpbindviewmvn;
 
 */
 
-import bind.adapter.GbMultiItemEntity;
+import com.chad.library.adapter.base.entity.MultiItemEntity;
 
 /**
  * 项目名称: YOSHOP
  * 类描述：
  * 创建人：Created by tanping
- * 创建时间:2018/7/25 14:15
+ * 创建时间:2018/7/26 9:03
  */
-public class DemoBean<T> implements GbMultiItemEntity {
-    public int type = 0;
-    public T value;
+public interface GbMultiItemEntity<T> extends MultiItemEntity{
 
-    @Override
-    public int getItemType() {
-        return type;
-    }
-
-    @Override
-    public  T getItemValue() {
-        return value;
-    }
+    /**
+     * 获取item 对应的值，用于多复杂类型 adapter 使用
+     * @param <T>
+     * @return
+     */
+     T getItemValue();
 }

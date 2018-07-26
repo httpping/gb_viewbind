@@ -39,7 +39,7 @@ import java.lang.annotation.Target;
  * 创建人：Created by tanping
  * 创建时间:2018/7/25 9:44
  */
-@Target({ElementType.FIELD})
+@Target({ElementType.FIELD,ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @ViewBindConverter
 public @interface ViewBind {

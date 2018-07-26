@@ -74,7 +74,12 @@ public class GBBaseBindAdapter<T extends MultiItemEntity,K extends BaseViewHolde
         if (methodModel!=null){
             try {
                 if (isOpenAutoBindView()){
-                    GbBindView.bindView(helper,item);
+                    if (item instanceof GbMultiItemEntity){
+                        GbMultiItemEntity entity = (GbMultiItemEntity)item;
+                        GbBindView.bindView(helper, entity.getItemValue());
+                    }else {
+                        GbBindView.bindView(helper, item);
+                    }
                 }
                 methodModel.method.invoke(this,helper,item);
             } catch (IllegalAccessException e) {
