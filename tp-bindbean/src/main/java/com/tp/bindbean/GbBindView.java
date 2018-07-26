@@ -30,6 +30,7 @@ import com.chad.library.adapter.base.BaseViewHolder;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 /**
  * 项目名称: YOSHOP
@@ -39,7 +40,9 @@ import java.util.List;
  */
 public class GbBindView {
 
+    private static final int MAX_QUERY = 30;
     static HashMap<Class, List<ViewModel>> cache;
+    static ConcurrentLinkedQueue fifoAndWeightQuery;
     public static <T> void bindView(BaseViewHolder holder , T entity) throws Exception {
         List<ViewModel> result = queryCode(entity);
         //bind view
@@ -52,18 +55,34 @@ public class GbBindView {
         CodeGenerator.bindView(holder,entity,result);
     }
 
-
-
     private static  <T>  List<ViewModel> queryCode(T entity) throws Exception {
         if (cache == null){
             cache = new HashMap<>();
         }
 
+        if (fifoAndWeightQuery == null){
+            fifoAndWeightQuery = new ConcurrentLinkedQueue();
+        }
+
+        //重新压栈
+        fifoAndWeightQuery.remove(entity.getClass());
+        fifoAndWeightQuery.offer(entity.getClass());
+
         List<ViewModel> result =cache.get(entity.getClass());
         if (result == null){
             result = CodeGenerator.parse(entity);
             cache.put(entity.getClass(),result);
+        }else {
+            //加速返回
+            return result;
         }
+
+        //队列溢出
+        while (fifoAndWeightQuery.size() > MAX_QUERY){
+            fifoAndWeightQuery.poll();
+        }
+
+
 
         return result;
     }
