@@ -28,6 +28,7 @@ import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.json.tanping.tpbindviewmvn.DemoBean;
 import com.json.tanping.tpbindviewmvn.R;
 import com.json.tanping.tpbindviewmvn.converter.annotations.ImageViewBind;
 import com.json.tanping.tpbindviewmvn.converter.annotations.PriceViewBind;
@@ -41,12 +42,12 @@ import com.json.tanping.tpbindviewmvn.converter.annotations.PriceViewBind;
 public class CommConverter {
 
     @ImageViewBind
-    public static void gbBind(ImageView view, String data) {
+    public static void gbBind(ImageView view, String data,DemoBean demoBean) {
         if (view == null){
             return;
         }
         view.setImageResource(R.drawable.sample_footer_loading);
-        Log.d("XX",""+data);
+        Log.d("XX",""+data  + " - " + demoBean);
 
     }
 
