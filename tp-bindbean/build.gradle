@@ -44,7 +44,7 @@ publish {
     userOrg = 'gbtp'//bintray.com用户名
     groupId = "gb.tp.bindhelper"//jcenter上的路径
     artifactId = 'GbBindHelper'//项目名称
-    publishVersion = '1.1.1'//版本号
+    publishVersion = '1.1.2'//版本号
     desc = 'gb_bindview'
     website = 'https://github.com/httpping/tp_bindview'
 }

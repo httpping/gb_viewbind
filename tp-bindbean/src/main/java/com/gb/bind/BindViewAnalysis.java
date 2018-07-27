@@ -1,6 +1,5 @@
 package com.gb.bind;
 
-import com.tp.bindbean.BindModel;
 
 import com.gb.bind.annotations.BindItem;
 

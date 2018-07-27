@@ -27,7 +27,7 @@ package com.gb.bind.adapter;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
-import com.tp.bindbean.BindModel;
+import com.gb.bind.BindModel;
 import com.gb.bind.BindViewAnalysis;
 import com.tp.bindbean.GbBindView;
 
