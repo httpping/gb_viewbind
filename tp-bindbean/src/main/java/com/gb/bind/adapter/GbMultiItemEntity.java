@@ -1,4 +1,4 @@
-package bind.adapter;
+package com.gb.bind.adapter;
 /*
 
                    _ooOoo_
@@ -28,9 +28,10 @@ import com.chad.library.adapter.base.entity.MultiItemEntity;
 
 /**
  * 项目名称: YOSHOP
- * 类描述：
+ * 类描述： 用于复杂的设计adapter模式
  * 创建人：Created by tanping
  * 创建时间:2018/7/26 9:03
+ * @author tanping
  */
 public interface GbMultiItemEntity<T> extends MultiItemEntity{
 

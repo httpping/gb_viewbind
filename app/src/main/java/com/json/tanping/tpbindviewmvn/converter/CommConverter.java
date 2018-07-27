@@ -25,12 +25,15 @@ package com.json.tanping.tpbindviewmvn.converter;
 */
 
 import android.util.Log;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.json.tanping.tpbindviewmvn.DemoBean;
+import com.json.tanping.tpbindviewmvn.IDrawImageView;
 import com.json.tanping.tpbindviewmvn.OKBean;
 import com.json.tanping.tpbindviewmvn.R;
+import com.json.tanping.tpbindviewmvn.converter.annotations.GoodsTitleBind;
 import com.json.tanping.tpbindviewmvn.converter.annotations.ImageViewBind;
 import com.json.tanping.tpbindviewmvn.converter.annotations.PriceViewBind;
 
@@ -44,7 +47,7 @@ import com.json.tanping.tpbindviewmvn.converter.annotations.PriceViewBind;
 public class CommConverter {
 
     @ImageViewBind
-    public static void ssss(ImageView view, String data,OKBean demoBean) {
+    public static void ssss(ImageView view, String data,IDrawImageView demoBean) {
         if (view == null){
             return;
         }
@@ -59,6 +62,11 @@ public class CommConverter {
 
         view.setText("price : "+data);
         Log.d("XX",""+data);
+
+    }
+
+    @GoodsTitleBind
+    public static void dsss(ViewGroup view, float data,OKBean bean){
 
     }
 }

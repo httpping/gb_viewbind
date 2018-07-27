@@ -37,12 +37,21 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  * 类描述：
  * 创建人：Created by tanping
  * 创建时间:2018/7/25 16:39
+ * @author tanping
  */
 public class GbBindView {
 
-    private static final int MAX_QUERY = 30;
+    private static   int MAX_QUERY = 30;
     static HashMap<Class, List<ViewModel>> cache;
     static ConcurrentLinkedQueue fifoAndWeightQuery;
+
+    /**
+     * 缓存
+     * @param maxCache cache size
+     */
+    public static void init(int maxCache){
+        MAX_QUERY = maxCache;
+    }
     public static <T> void bindView(BaseViewHolder holder , T entity) throws Exception {
         if (holder==null || entity ==null){
             throw new NullPointerException("holder and entity is null,ignore bind");

@@ -25,8 +25,8 @@ package com.json.tanping.tpbindviewmvn;
 */
 
 import com.chad.library.adapter.base.BaseViewHolder;
-import bind.adapter.GBBaseBindAdapter;
-import bind.annotations.BindItem;
+import com.gb.bind.adapter.GBBaseBindAdapter;
+import com.gb.bind.annotations.BindItem;
 
 import java.util.List;
 
@@ -43,7 +43,7 @@ public class DemoAdapter extends GBBaseBindAdapter<DemoBean,BaseViewHolder> {
 
     @BindItem(layout = R.layout.item_one)
     public void afadsfsdf(BaseViewHolder helper,DemoBean bean) throws Exception {
-
+//        bean.value;
     }
 
     @Override

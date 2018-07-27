@@ -1,4 +1,4 @@
-package com.json.tanping.tpbindviewmvn;
+package com.gb.bind;
 /*
 
                    _ooOoo_
@@ -24,35 +24,18 @@ package com.json.tanping.tpbindviewmvn;
 
 */
 
-import com.json.tanping.tpbindviewmvn.converter.CommConverter;
-import com.json.tanping.tpbindviewmvn.converter.annotations.ImageViewBind;
-import com.json.tanping.tpbindviewmvn.converter.annotations.PriceViewBind;
-import com.tp.bindbean.annotations.TextViewBind;
+import android.support.annotation.LayoutRes;
+
+import java.lang.reflect.Method;
 
 /**
  * 项目名称: YOSHOP
  * 类描述：
  * 创建人：Created by tanping
- * 创建时间:2018/7/25 16:55
+ * 创建时间:2018/7/25 10:00
  */
-public class OKBean implements IDrawImageView{
-
-    @TextViewBind(id = R.id.textView)
-    public String text ="hello wlord 为2神神道ss道";
-
-    @ImageViewBind(id=R.id.imageView)
-    public String url ="dd";
-
-    @PriceViewBind(id=R.id.textView1)
-    public float price = 2.3f;
-
-    @Override
-    public int getW() {
-        return 0;
-    }
-
-    @Override
-    public int getH() {
-        return 0;
-    }
+public class BindModel {
+    public Method method;
+    public @LayoutRes int layout ;
+    public int type ;
 }

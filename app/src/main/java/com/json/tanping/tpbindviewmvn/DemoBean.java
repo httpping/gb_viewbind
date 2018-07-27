@@ -24,7 +24,7 @@ package com.json.tanping.tpbindviewmvn;
 
 */
 
-import bind.adapter.GbMultiItemEntity;
+import com.gb.bind.adapter.GbMultiItemEntity;
 
 /**
  * 项目名称: YOSHOP

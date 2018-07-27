@@ -1,4 +1,4 @@
-package bind.annotations;
+package com.json.tanping.tpbindviewmvn;
 /*
 
                    _ooOoo_
@@ -24,22 +24,18 @@ package bind.annotations;
 
 */
 
-import android.support.annotation.LayoutRes;
-
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import com.json.tanping.tpbindviewmvn.converter.annotations.ImageViewBind;
+import com.json.tanping.tpbindviewmvn.converter.annotations.PriceViewBind;
+import com.tp.bindbean.annotations.TextViewBind;
 
 /**
- * 项目名称: DL
+ * 项目名称: YOSHOP
  * 类描述：
  * 创建人：Created by tanping
- * 创建时间:2018/7/25 9:44
+ * 创建时间:2018/7/25 16:55
  */
-@Target({ElementType.METHOD,})
-@Retention(RetentionPolicy.RUNTIME)
-public @interface BindItem {
-    int  type() default 0;
-    @LayoutRes int layout() default 0;
+public interface IDrawImageView {
+
+    int getW();
+    int getH();
 }

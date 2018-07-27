@@ -1,4 +1,4 @@
-package bind.adapter;
+package com.gb.bind.adapter;
 /*
 
                    _ooOoo_
@@ -27,8 +27,8 @@ package bind.adapter;
 import com.chad.library.adapter.base.BaseMultiItemQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chad.library.adapter.base.entity.MultiItemEntity;
-import bind.BindModel;
-import bind.BindViewAnalysis;
+import com.tp.bindbean.BindModel;
+import com.gb.bind.BindViewAnalysis;
 import com.tp.bindbean.GbBindView;
 
 import java.lang.reflect.InvocationTargetException;

@@ -1,6 +1,8 @@
-package bind;
+package com.gb.bind;
 
-import bind.annotations.BindItem;
+import com.tp.bindbean.BindModel;
+
+import com.gb.bind.annotations.BindItem;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;

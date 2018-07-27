@@ -1,4 +1,4 @@
-package com.json.tanping.tpbindviewmvn;
+package com.json.tanping.tpbindviewmvn.converter.annotations;
 /*
 
                    _ooOoo_
@@ -24,35 +24,26 @@ package com.json.tanping.tpbindviewmvn;
 
 */
 
+import android.support.annotation.IdRes;
+
 import com.json.tanping.tpbindviewmvn.converter.CommConverter;
-import com.json.tanping.tpbindviewmvn.converter.annotations.ImageViewBind;
-import com.json.tanping.tpbindviewmvn.converter.annotations.PriceViewBind;
-import com.tp.bindbean.annotations.TextViewBind;
+import com.tp.bindbean.annotations.ViewBindConverter;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
- * 项目名称: YOSHOP
- * 类描述：
+ * 项目名称: DL
+ * 类描述： 将text设置到View中
  * 创建人：Created by tanping
- * 创建时间:2018/7/25 16:55
+ * 创建时间:2018/7/25 9:44
  */
-public class OKBean implements IDrawImageView{
-
-    @TextViewBind(id = R.id.textView)
-    public String text ="hello wlord 为2神神道ss道";
-
-    @ImageViewBind(id=R.id.imageView)
-    public String url ="dd";
-
-    @PriceViewBind(id=R.id.textView1)
-    public float price = 2.3f;
-
-    @Override
-    public int getW() {
-        return 0;
-    }
-
-    @Override
-    public int getH() {
-        return 0;
-    }
+@Target({ElementType.FIELD,ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
+@ViewBindConverter
+public @interface GoodsTitleBind {
+    @IdRes int id() default 0;
+    Class  converter() default CommConverter.class;
 }

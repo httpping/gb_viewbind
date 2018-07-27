@@ -1,4 +1,4 @@
-package bind;
+package com.gb.bind;
 
 import android.support.annotation.Nullable;
 
