@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.tp.cache.CacheManager;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +31,25 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(adapter);
 
+
+        CacheManager.init(this);
+        String key = "xx";
+        int value = 100;
+
+        CacheManager.count();
+
+        CacheManager.put(key,value,100);
+
+        value = CacheManager.get(key,0);
+
+        CacheManager.put("double",1.30d);
+        double dd =  CacheManager.get("double");
+
+         CacheManager.put("object",new OKBean());
+        OKBean okBean =  CacheManager.get("object");
+
+        CacheManager.put("list",beans);
+        beans = CacheManager.get("list");
     }
     public void testData(){
         for (int i=0;i<30;i++){
