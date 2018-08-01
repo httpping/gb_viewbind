@@ -1,6 +1,6 @@
 package com.tp.cache.hawk;
 
-interface Converter {
+public interface Converter {
 
   /**
    * Encodes the value

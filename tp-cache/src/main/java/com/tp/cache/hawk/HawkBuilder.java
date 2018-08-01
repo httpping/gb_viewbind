@@ -90,7 +90,10 @@ public class HawkBuilder {
 
   Encryption getEncryption() {
     if (encryption == null) {
+      encryption = new ConcealEncryption(context);
+      if (!encryption.init()) {
         encryption = new NoEncryption();
+      }
     }
     return encryption;
   }

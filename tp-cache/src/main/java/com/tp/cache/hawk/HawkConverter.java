@@ -15,7 +15,7 @@ import java.util.Set;
  * Serializable types will be encoded/decoded object stream
  * Not serializable objects will be encoded/decoded by parser
  */
-final class HawkConverter implements Converter {
+public final class HawkConverter implements Converter {
 
   private final Parser parser;
 

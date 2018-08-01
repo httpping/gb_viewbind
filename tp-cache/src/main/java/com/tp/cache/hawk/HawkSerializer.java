@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-class HawkSerializer implements Serializer {
+public class HawkSerializer implements Serializer {
 
   private static final char DELIMITER = '@';
   private static final String INFO_DELIMITER = "#";
@@ -13,7 +13,7 @@ class HawkSerializer implements Serializer {
 
   private final LogInterceptor logInterceptor;
 
-  HawkSerializer(LogInterceptor logInterceptor) {
+  public HawkSerializer(LogInterceptor logInterceptor) {
     this.logInterceptor = logInterceptor;
   }
 

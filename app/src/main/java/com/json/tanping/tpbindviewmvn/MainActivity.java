@@ -38,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
 
         CacheManager.count();
 
-        CacheManager.put(key,value,100);
-
+        CacheManager.put(key,value,10);
+        int a = 0;
         value = CacheManager.get(key,0);
 
         CacheManager.put("double",1.30d);

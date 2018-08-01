@@ -26,7 +26,16 @@ package com.tp.cache;
 
 import android.content.Context;
 
+import com.google.gson.Gson;
+import com.tp.cache.hawk.Converter;
+import com.tp.cache.hawk.DataInfo;
+import com.tp.cache.hawk.GsonParser;
 import com.tp.cache.hawk.Hawk;
+import com.tp.cache.hawk.HawkConverter;
+import com.tp.cache.hawk.HawkSerializer;
+import com.tp.cache.hawk.LogInterceptor;
+import com.tp.cache.hawk.Parser;
+import com.tp.cache.hawk.Serializer;
 
 
 /**
@@ -39,21 +48,23 @@ import com.tp.cache.hawk.Hawk;
 public class CacheManager {
 
     private static CacheManager instance;
-
+    Context context;
     /**
      * 初始化，调用
      * @param context
      */
     public static void init(Context context){
         getInstance();
+
         try {
             if (!Hawk.isBuilt()){
                 Hawk.init(context).setStorage(new DBStorage(context)).build();
             }
+
         } catch (Exception e) {
             e.printStackTrace();
             //app 最好不要回收掉。
-                Hawk.init(context).setStorage(new DBStorage(context)).build();
+            Hawk.init(context).setStorage(new DBStorage(context)).build();
         }
     }
     /**
@@ -64,6 +75,8 @@ public class CacheManager {
         if (instance ==null) {
             instance = new CacheManager();
         }
+        instance.getConverter();
+        instance.getSerializer();
         return instance;
     }
 
@@ -84,18 +97,19 @@ public class CacheManager {
             getInstance();
         }
 
-        /*CachePackage cachePackage  = new CachePackage();
+        CachePackage cachePackage  = new CachePackage();
         cachePackage.exp = exp;
         if (cachePackage.exp>0){
             cachePackage.timestamp = System.currentTimeMillis();
         }
-        cachePackage.v = value;
         if (value!=null){
             cachePackage.cls = value.getClass().getName();
-        }*/
+        }
 
+        String txt = instance.converter.toString(value);
+        cachePackage.v = instance.serializer.serialize(txt, value);
 
-        return Hawk.put(key,value);
+        return Hawk.put(key,cachePackage);
     }
 
     public static <T> T get(String key) {
@@ -104,10 +118,11 @@ public class CacheManager {
 
 
     public static <T> T get(String key, T defaultValue) {
-       /* if (instance == null){
+        if (instance == null){
             getInstance();
         }
         CachePackage result = (CachePackage)Hawk.get(key, defaultValue);
+
         if (result == null){
             return defaultValue;
         }
@@ -117,11 +132,17 @@ public class CacheManager {
             return defaultValue;
         }
 
-        if (result.getValue() == null){
-            return (T) result.v;
-        }*/
+        DataInfo dataInfo = instance.serializer.deserialize(result.v);
+        T data;
+        try {
+            data  = instance.converter.fromString(dataInfo.cipherText, dataInfo);
+            return data;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        return  Hawk.get(key,defaultValue);
+
+        return defaultValue;
     }
 
 
@@ -172,4 +193,39 @@ public class CacheManager {
         return Hawk.contains(key);
     }
 
+
+    /**
+     * 作用于 数据转换
+     */
+    private Parser parser;
+    private Converter converter;
+    private Serializer serializer;
+    private Parser getParser() {
+        if (parser == null) {
+            parser = new GsonParser(new Gson());
+        }
+        return parser;
+    }
+    private Converter getConverter() {
+        if (converter == null) {
+            converter = new HawkConverter(getParser());
+        }
+        return converter;
+    }
+
+    private Serializer getSerializer() {
+        if (serializer == null) {
+            serializer = new HawkSerializer(getLogInterceptor());
+        }
+        return serializer;
+    }
+
+    private LogInterceptor getLogInterceptor() {
+        LogInterceptor   logInterceptor = new LogInterceptor() {
+                @Override public void onLog(String message) {
+                    //empty implementation
+                }
+            };
+        return logInterceptor;
+    }
 }
