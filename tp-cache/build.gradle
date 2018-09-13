@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+//apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 27
@@ -39,19 +39,19 @@ dependencies {
 
 //gradlew clean build bintrayUpload -PbintrayUser=httpping -PbintrayKey=363bcd47dd3557230d01c1fb525c0a02e3ae8b92 -PdryRun=false
 
-publish {
-    repoName = 'TPCache'
-    userOrg = 'gbtp'//bintray.com用户名
-    groupId = "gb.tp.cache"//jcenter上的路径
-    artifactId = 'TPCache'//项目名称
-    publishVersion = '1.0.0'//版本号
-    desc = 'gb_bindview'
-    website = 'https://github.com/httpping/tp_bindview'
-}
-
-tasks.withType(JavaCompile){
-    options.encoding = "UTF-8"
-}
-tasks.withType(Javadoc) {
-    options.encoding = "UTF-8"
-}
+//publish {
+//    repoName = 'TPCache'
+//    userOrg = 'gbtp'//bintray.com用户名
+//    groupId = "gb.tp.cache"//jcenter上的路径
+//    artifactId = 'TPCache'//项目名称
+//    publishVersion = '1.0.0'//版本号
+//    desc = 'gb_bindview'
+//    website = 'https://github.com/httpping/tp_bindview'
+//}
+//
+//tasks.withType(JavaCompile){
+//    options.encoding = "UTF-8"
+//}
+//tasks.withType(Javadoc) {
+//    options.encoding = "UTF-8"
+//}

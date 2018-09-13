@@ -1,12 +1,10 @@
 package com.json.tanping.tpbindviewmvn;
 
 import android.annotation.SuppressLint;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-
-import com.tp.cache.CacheManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(adapter);
 
-
-        CacheManager.init(this);
+     /*   CacheManager.init(this);
         String key = "xx";
         int value = 100;
 
@@ -49,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         OKBean okBean =  CacheManager.get("object");
 
         CacheManager.put("list",beans);
-        beans = CacheManager.get("list");
+        beans = CacheManager.get("list");*/
     }
     public void testData(){
         for (int i=0;i<30;i++){

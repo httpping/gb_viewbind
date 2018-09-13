@@ -69,6 +69,11 @@ public class GBBaseBindAdapter<T extends MultiItemEntity,K extends BaseViewHolde
         if (methods==null){
             return;
         }
+
+        if(item == null){
+            return;
+        }
+
         int type = item.getItemType();
         BindModel methodModel = methods.get(type);
         if (methodModel!=null){
@@ -89,7 +94,12 @@ public class GBBaseBindAdapter<T extends MultiItemEntity,K extends BaseViewHolde
                 e.printStackTrace();
             }
             try {
-                methodModel.method.invoke(this,helper,item);
+                int size = methodModel.method.getParameterTypes().length;
+                if (size == 3) {
+                    methodModel.method.invoke(this, helper, item,getData().indexOf(item));
+                }else {
+                    methodModel.method.invoke(this, helper, item);
+                }
             }   catch (Exception e) {
                 e.printStackTrace();
             }
@@ -101,4 +111,10 @@ public class GBBaseBindAdapter<T extends MultiItemEntity,K extends BaseViewHolde
      * @return 值
      */
     public boolean isOpenAutoBindView(){return false;}
+
+
+    @Override
+    public final int getItemViewType(int position) {
+        return super.getItemViewType(position);
+    }
 }

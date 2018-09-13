@@ -28,6 +28,8 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.gb.bind.adapter.GBBaseBindAdapter;
 import com.gb.bind.annotations.BindItem;
 
+import junit.framework.Assert;
+
 import java.util.List;
 
 /**
@@ -42,8 +44,9 @@ public class DemoAdapter extends GBBaseBindAdapter<DemoBean,BaseViewHolder> {
     }
 
     @BindItem(layout = R.layout.item_one)
-    public void afadsfsdf(BaseViewHolder helper,DemoBean bean) throws Exception {
+    public void afadsfsdf(BaseViewHolder helper,DemoBean bean,int postition) throws Exception {
 //        bean.value;
+        Assert.assertEquals(postition,getData().indexOf(bean));
     }
 
     @Override

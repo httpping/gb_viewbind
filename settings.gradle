@@ -1,1 +1,2 @@
-include ':app', ':tp-bindbean',':tp-cache'
+include ':app', ':tp-bindbean'
+//,':tp-cache'
